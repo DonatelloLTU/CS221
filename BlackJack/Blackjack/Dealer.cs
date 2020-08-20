@@ -7,7 +7,9 @@ using System.Transactions;
 namespace Blackjack
 {
     /// <summary>
-    /// 
+    /// Author : Donatas Vasauskas
+    /// Edited : 08/19/2020
+    /// Class Dealer create instance of the dealer which is inherited from Player class
     /// </summary>
     public class Dealer : Player
     {

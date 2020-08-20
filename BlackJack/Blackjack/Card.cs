@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Blackjack
 {
+    /// <summary>
+    /// Author : Donatas Vasauskas
+    /// Edited : 08/19/2020
+    /// </summary>
+    /// Class Card is responsiible to create card instance.
     public class Card : IComparable
     {
         private class SortBySuit : IComparer

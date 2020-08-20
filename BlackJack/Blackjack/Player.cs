@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Blackjack
 {
+    /// <summary>
+    /// Class player creates instance of player with specified name and stash.
+    /// </summary>
     public class Player
     {
         // Field to hold the value of Stash property

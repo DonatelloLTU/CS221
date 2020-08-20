@@ -7,7 +7,10 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace Blackjack
-{
+{   
+    /// <summary>
+    /// Class Deck stores instances of the class Card into a list
+    /// </summary>
     public class Deck
     {
         public List<Card> Cards { get; set; } = new List<Card>();

@@ -5,6 +5,9 @@ using System.Threading;
 
 namespace Blackjack
 {
+    /// <summary>
+    /// Class Table is responsible for creating playable table instance to play BlackJack
+    /// </summary>
     public class Table
     {
         private int pot = 0;
@@ -14,6 +17,10 @@ namespace Blackjack
 
         public Table()
         {
+            int stash = 500;
+            Player = new Player("Steve", stash);
+            Dealer = new Dealer(stash*5);
+           
             // Create a player and  adealer object.  Give the dealer 5x the amount of money of the player to start
         }
 
