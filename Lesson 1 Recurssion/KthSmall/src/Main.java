@@ -4,7 +4,6 @@
  *
  * @author Richard Mace
  * @author Gary Thompson
- * @author dvasauskas
  * @version 2020.9.1.3
  */
 public class Main {

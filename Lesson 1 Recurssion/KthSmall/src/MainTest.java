@@ -34,7 +34,7 @@ class MainTest extends Main
         array = new int[n];
         arraySorted = new int[n];
         first = 0;
-        last = n;
+        last = n-1;
         for(int i = 0; i < n; i++)  //filling the arrays with random numbers
         {
             r = random.nextInt(50);
