@@ -4,17 +4,21 @@ public DeckADT()
 {
 
 }
-public void shuffle()
-{
+//public void addCard()
+//{
 
-}
-public void draw()
-{
+//}
+//public void shuffle()
+//{
 
-}
-public int getCards()
-{
+//}
+//public void draw()
+//{
 
-}
+//}
+//public int getCards()
+//{
+
+//}
 
 }

@@ -10,36 +10,36 @@ public class CardADT {
     {
 
     }
-    public void show()
-    {
+ //   public void show();
+   // {
 
-    }
-    public void setValue()
-    {
+    //}
+   // public void setValue();
+    //{
 
-    }
-    public int getValue()
-    {
+    //}
+    //public int getValue();
+    //{
 
-    }
-    public void setRank()
-    {
+    //}
+    //public void setRank();
+    //{
 
-    }
-    public int getRank()
-    {
+    //}
+   // public int getRank();
+    //{
 
-    }
-    public void setSuit()
-    {
+    //}
+    //public void setSuit();
+    //{
 
-    }
-    public int getSuit()
-    {
+    //}
+    //public int getSuit();
+    //{
 
-    }
-    public String toString()
-    {
+    //}
+    //public String toString();
+    //{
 
-    }
+    //}
 }

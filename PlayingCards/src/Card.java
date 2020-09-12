@@ -19,16 +19,18 @@ public class Card {
     private static String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
     private static String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10",
             "J", "Q", "K", "A"};
-    boolean visible;
+
+    boolean visible = false;
 
     /**
      * Constructor for objects of class Card
      */
-    public Card(int suit, int value, File png) {
-        this.suit = suit;
-        this.value = value;
-        visible = true;
+    public Card(int suit, int value, boolean visible) {
+
 
     }
+    public String getCard()
+    {
 
+    }
 }
