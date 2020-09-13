@@ -25,7 +25,7 @@ public class CardTest
         card = null;
     }
 
-    /*
+    /**
      * Test to make sure card returns correct suit of the card
      */
     @Test
@@ -34,7 +34,7 @@ public class CardTest
         Assert.assertEquals(1, card.getSuit() );
     }
 
-    /*
+    /**
      * Test to make sure card returns correct value of the card
      */
     @Test
@@ -43,7 +43,7 @@ public class CardTest
         Assert.assertEquals(1, card.getValue());
     }
 
-    /*
+    /**
      * Test to make sure card is visible
      */
     @Test
@@ -52,7 +52,7 @@ public class CardTest
         Assert.assertTrue(card.visible);
     }
 
-    /*
+    /**
      * Test to make sure suit name is returned correctly
      */
     @Test
@@ -61,7 +61,7 @@ public class CardTest
         Assert.assertSame("Hearts", card.getSuitName());
     }
 
-    /*
+    /**
      * Test to make sure value of the card is returned properly
      */
     @Test

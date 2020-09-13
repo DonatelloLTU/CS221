@@ -9,7 +9,7 @@ public class Deck
 {
     Card[] deck;
     int last;
-/*
+/**
     Constructor for the class Deck,
     Stores instance of cards and stores them in array of deck.
  */
@@ -29,7 +29,7 @@ public class Deck
         shuffle(); //after creation method is called to shuffle the deck array
         getDeckCards(); //print out statement to check if the cards are shuffled
     }
-    /*
+    /**
         Method shuffle, takes array using random number puts cards in random order within array.
      */
     public void shuffle()
@@ -45,14 +45,14 @@ public class Deck
         }
     }
 
-    /*
+    /**
      * Method to deal cards
      */
     public void deal()
     {
 
     }
-    /*
+    /**
         Method to check if array is shuffled,
         @return String to see is the deck shuffled.
      */

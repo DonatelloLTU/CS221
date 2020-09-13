@@ -26,7 +26,7 @@ public class DeckTest
         deck2 = null;
     }
 
-    /*
+    /**
     Test to make sure deck size is 52 cards
      */
     @Test
@@ -35,7 +35,7 @@ public class DeckTest
         Assert.assertEquals(52, deck.deck.length);
     }
 
-    /*
+    /**
     Test to check that two decks are not the same, and they are shuffled.
      */
     @Test
