@@ -45,14 +45,14 @@ public class Deck
         }
     }
 
-    /**
+    /*
      * Method to deal cards
      */
     public void deal()
     {
 
     }
-    /**
+    /*
         Method to check if array is shuffled,
         @return String to see is the deck shuffled.
      */

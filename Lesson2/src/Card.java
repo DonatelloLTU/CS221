@@ -9,7 +9,7 @@ public class Card
     final int Hearts = 1, Spades = 2, Diamonds = 3, Clubs = 4;
 
     boolean visible;
-    /**
+    /*
         Constructor to create card
         @param suit is integer to represent suit of the card,
         @param value is an integer to represent value of the card,
@@ -19,10 +19,10 @@ public class Card
     {
         suits = suit;
         values = value;
-        visible = true;
+        this.visible = true;
     }
 
-    /**
+    /*
      * Method getSuit accessor to get the suit of the card
      * @return suits represents the suit of the card.
      */
@@ -31,7 +31,7 @@ public class Card
         return suits;
     }
 
-    /**
+    /*
      *Method getValue accessor to get the value of the card
      * @return values represents the values of the card
      */
@@ -40,7 +40,7 @@ public class Card
         return values;
     }
 
-    /**
+    /*
      * Void method to make cards visibility true
      */
     public void show()
@@ -48,7 +48,7 @@ public class Card
         visible = true;
     }
 
-    /**
+    /*
      * Void method to make card visibility false
      */
     public void hide()
@@ -56,7 +56,7 @@ public class Card
         visible = false;
     }
 
-    /**
+    /*
      * Method to show name of the suit for the card using cases
      * @return "Hearts" returns string to represent Heart suit for the card
      * @return "Spades" returns string to represent Spades suit for the card
@@ -76,7 +76,7 @@ public class Card
     }
     }
 
-    /**
+    /*
      * Method to get string value of the card
      * @return Value of the string to represent specific card.
      */
