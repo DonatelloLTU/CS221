@@ -15,6 +15,7 @@ public class Card
         @param value is an integer to represent value of the card,
         @param visible boolean to represent is the card visible or not.
      */
+
     public Card(int suit, int value, boolean visible)
     {
         suits = suit;
@@ -22,9 +23,12 @@ public class Card
         this.visible = true;
     }
 
+
+
+
     /**
      * Method getSuit accessor to get the suit of the card
-     * @return suits represents the suit of the card.
+     * @return suits represents the suit of the card in integer.
      */
     public int getSuit()
     {
@@ -39,6 +43,8 @@ public class Card
     {
         return values;
     }
+
+
 
     /**
      * Void method to make cards visibility true
@@ -84,7 +90,7 @@ public class Card
     {
         switch (values)
         {
-            case 1: return "A";
+            //case 1: return "A";
             case 2: return "2";
             case 3: return "3";
             case 4: return "4";
@@ -97,6 +103,7 @@ public class Card
             case 11: return "Jack";
             case 12: return "Queen";
             case 13: return "King";
+            case 14: return "Ace";
             default: return "No";
         }
     }
