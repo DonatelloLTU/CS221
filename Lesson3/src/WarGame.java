@@ -15,11 +15,19 @@ public class WarGame
 
         public static void main(String[] args) throws InterruptedException, IOException {
             Deck deck = new Deck();
-            Scanner scanner = new Scanner(System.in);
-            String name = scanner.nextLine();
-            Player player = new Player(name);
+
+
             Card[] playerOne = new Card[100];
             Card[] playerTwo = new Card[100];
+
+            System.out.print("Enter your name: ");
+
+            Scanner scanner = new Scanner(System.in);
+            String name = scanner.nextLine();
+            int scan = scanner.nextInt();
+            Player player = new Player(name);
+
+
 
 
             List<Card> warList = new ArrayList<>();
@@ -35,118 +43,115 @@ public class WarGame
                     playerTwo[j] = deck.returnDeck(j+26);
                    // System.out.println(playerTwo[j]);
                 }
+
             /*
                 Main loop for the game, if none of the arrays are 0, if not 0 then the game runs.
              */
             while (playerOne[0] != null || playerTwo[0] != null)
             {
-               Card playerOneCard = playerOne[0]; //assigning first card of array to player card
-               Card playerTwoCard = playerTwo[0]; //assigning first car of array to player card
+                //if (scan != 2) {
+                //    System.out.println("To continue playing enter 1, to finish game automatically enter 2");
+               // }
 
-               System.out.println(player.getName() + "'s card: " + playerOneCard); //prints out the player one card
-               System.out.println("Player two card: " + playerTwoCard); //prints out the player two card
+                //if (scan == 1) {
 
-                LinkedList<Card> tempList = new LinkedList<>(Arrays.asList(playerOne)); //takes array and changes to LinkedList
-                LinkedList<Card> tempList2 = new LinkedList<>(Arrays.asList(playerTwo)); //takes array and changes to LinkedList
-               if(playerOneCard.getValue() > playerTwoCard.getValue()) //if player one card is higher, player one wins, adding his own first card and the card won to his array.
-               {
-                   System.out.println(player.getName() + " wins this round!");
+                    Card playerOneCard = playerOne[0]; //assigning first card of array to player card
+                    Card playerTwoCard = playerTwo[0]; //assigning first car of array to player card
 
-                   tempList.add(playerOneCard);
-                   tempList.removeFirst();
-                   tempList.add(playerTwoCard);
-                   tempList2.removeFirst();
-                   tempList.removeAll(Collections.singletonList(null));
-                   tempList2.removeAll(Collections.singletonList(null));
-                   playerOne = tempList.toArray(playerOne);
-                   playerTwo = tempList2.toArray(playerTwo);
-                   TimeUnit.SECONDS.sleep(5);
-                    System.out.println(" ");
+                    System.out.println(player.getName() + "'s card: " + playerOneCard); //prints out the player one card
+                    System.out.println("Player two card: " + playerTwoCard); //prints out the player two card
+
+                    LinkedList<Card> tempList = new LinkedList<>(Arrays.asList(playerOne)); //takes array and changes to LinkedList
+                    LinkedList<Card> tempList2 = new LinkedList<>(Arrays.asList(playerTwo)); //takes array and changes to LinkedList
+                    if (playerOneCard.getValue() > playerTwoCard.getValue()) //if player one card is higher, player one wins, adding his own first card and the card won to his array.
+                    {
+                        System.out.println(player.getName() + " wins this round!");
+
+                        tempList.add(playerOneCard);
+                        tempList.removeFirst();
+                        tempList.add(playerTwoCard);
+                        tempList2.removeFirst();
+                        tempList.removeAll(Collections.singletonList(null));
+                        tempList2.removeAll(Collections.singletonList(null));
+                        playerOne = tempList.toArray(playerOne);
+                        playerTwo = tempList2.toArray(playerTwo);
+                        TimeUnit.SECONDS.sleep(5);
+                        System.out.println(" ");
 
 
-               }
-               else if (playerOneCard.getValue() < playerTwoCard.getValue()) //if player two card is higher, player one wins, adding his own first card and the card won to his array.
-               {
-                   System.out.println("Player two wins this round!");
-                   tempList2.add(playerTwoCard);
-                   tempList2.removeFirst();
-                   tempList.add(playerOneCard);
-                   tempList.removeFirst();
-                   tempList.removeAll(Collections.singletonList(null));
-                   tempList2.removeAll(Collections.singletonList(null));
-                   playerOne = tempList.toArray(playerOne);
-                   playerTwo = tempList2.toArray(playerTwo);
-                   TimeUnit.SECONDS.sleep(5);
-                   System.out.println(" ");
+                    } else if (playerOneCard.getValue() < playerTwoCard.getValue()) //if player two card is higher, player one wins, adding his own first card and the card won to his array.
+                    {
+                        System.out.println("Player two wins this round!");
+                        tempList2.add(playerTwoCard);
+                        tempList2.removeFirst();
+                        tempList.add(playerOneCard);
+                        tempList.removeFirst();
+                        tempList.removeAll(Collections.singletonList(null));
+                        tempList2.removeAll(Collections.singletonList(null));
+                        playerOne = tempList.toArray(playerOne);
+                        playerTwo = tempList2.toArray(playerTwo);
+                        TimeUnit.SECONDS.sleep(5);
+                        System.out.println(" ");
 
-               }
-               else //War part of the game
-               {
-                   System.out.println("War");
-                   for (int b = 0; b < 5; b++)
-                   {
-                       if (tempList.isEmpty())
-                       {
-                           tempList.add(tempList2.getFirst());
-                       }
-                       else if (tempList2.isEmpty())
-                       {
-                           tempList2.add(tempList.getFirst());
-                       }
+                    } else //War part of the game
+                    {
+                        System.out.println("War");
+                        for (int b = 0; b < 5; b++) {
+                            if (tempList.isEmpty()) {
+                                tempList.add(tempList2.getFirst());
+                            } else if (tempList2.isEmpty()) {
+                                tempList2.add(tempList.getFirst());
+                            }
 
-                       warList.add(tempList.getFirst());
-                       warList2.add(tempList2.getFirst());
-                       tempList.removeFirst();
-                       tempList2.removeFirst();
+                            warList.add(tempList.getFirst());
+                            warList2.add(tempList2.getFirst());
+                            tempList.removeFirst();
+                            tempList2.removeFirst();
 
-                   }
-                   playerOneCard = tempList.getFirst();
-                   playerTwoCard = tempList2.getFirst();
+                        }
+                        playerOneCard = tempList.getFirst();
+                        playerTwoCard = tempList2.getFirst();
 
-                   if (playerOneCard.getValue() > playerTwoCard.getValue())
-                   {
-                       tempList.addAll(warList);
-                       tempList.addAll(warList2);
-                       tempList.removeAll(Collections.singletonList(null));
-                       tempList2.removeAll(Collections.singletonList(null));
-                       playerOne = tempList.toArray(playerOne);
-                       playerTwo = tempList2.toArray(playerTwo);
-                       System.out.println(player.getName() + "'s card: " + playerOneCard);
-                       System.out.println("Player two card: " + playerTwoCard);
-                       System.out.println(player.getName()+" won the war!!!");
-                       TimeUnit.SECONDS.sleep(5);
-                       System.out.println(" ");
-                   }
-                   else if (playerOneCard.getValue() < playerTwoCard.getValue())
-                   {
+                        if (playerOneCard.getValue() > playerTwoCard.getValue()) {
+                            tempList.addAll(warList);
+                            tempList.addAll(warList2);
+                            tempList.removeAll(Collections.singletonList(null));
+                            tempList2.removeAll(Collections.singletonList(null));
+                            playerOne = tempList.toArray(playerOne);
+                            playerTwo = tempList2.toArray(playerTwo);
+                            System.out.println(player.getName() + "'s card: " + playerOneCard);
+                            System.out.println("Player two card: " + playerTwoCard);
+                            System.out.println(player.getName() + " won the war!!!");
+                            TimeUnit.SECONDS.sleep(5);
+                            System.out.println(" ");
+                        } else if (playerOneCard.getValue() < playerTwoCard.getValue()) {
 
-                       tempList2.addAll(warList);
-                       tempList.remove(null);
-                       tempList2.remove(null);
-                       playerOne = tempList.toArray(playerOne);
-                       playerTwo = tempList2.toArray(playerTwo);
-                       System.out.println(player.getName() + "'s card: " + playerOneCard);
-                       System.out.println("Player two card: " + playerTwoCard);
-                       System.out.println("Player two won the war!!!");
-                       TimeUnit.SECONDS.sleep(5);
-                       System.out.println("  ");
-                   }
-                   else
-                   {
-                       System.out.println("War again!!!!");
-                       break;
-                   }
+                            tempList2.addAll(warList);
+                            tempList.remove(null);
+                            tempList2.remove(null);
+                            playerOne = tempList.toArray(playerOne);
+                            playerTwo = tempList2.toArray(playerTwo);
+                            System.out.println(player.getName() + "'s card: " + playerOneCard);
+                            System.out.println("Player two card: " + playerTwoCard);
+                            System.out.println("Player two won the war!!!");
+                            TimeUnit.SECONDS.sleep(5);
+                            System.out.println("  ");
+                        } else {
+                            System.out.println("War again!!!!");
+                            break;
+                        }
 
-               }
+                    }
+                }
 
-            }
+
             if (playerOne[0] == null)
             {
                 System.out.println("PLAYER 2 WINS THE GAME OF WAR!!!!");
             }
             else
             {
-                System.out.println("PLAYER 1 WINS THE GAME OF WAR!!!!");
+                System.out.println(player.getName() + " WINS THE GAME OF WAR!!!!");
             }
 
 

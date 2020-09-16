@@ -23,4 +23,13 @@ public class Player
     public String getName() {
         return name;
     }
+
+    /**
+     * Setter method to set player name
+     * @param name set name of the player
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 }
