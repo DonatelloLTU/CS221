@@ -4,7 +4,7 @@
  * @version 2020-09-18.01
  */
 
-public interface LinkedListSortedADT
+public interface SortedLinkedListADT
 {
 
     /**
