@@ -132,5 +132,21 @@ public class SortedLinkedList implements SortedLinkedListADT {
         return false;
     }
 
+    /**
+     * Print out what is in the list
+     */
+    public void print()
+    {
+        if(head != null)
+        {
+            current = head;
+            while(current != null)
+            {
+                System.out.println(current.getItem());
+                current = current.getNext();
+            }
+        }
+    }
+
 
 }

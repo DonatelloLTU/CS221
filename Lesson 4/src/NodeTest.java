@@ -27,6 +27,7 @@ public class NodeTest {
         list.insert(11);
         list.insert(33);
         item = 5;
+
     }
 
 
@@ -68,8 +69,11 @@ public class NodeTest {
         @Test
         public void setItemTest()
         {
-            item = 4;
-            assertEquals(4, item);
+            item = 6;
+            list.insert(item);
+            System.out.println("Test setItemTest");
+            list.print();
+            assertTrue(list.contains(item));
         }
 
 
