@@ -1,7 +1,6 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Donatas Vasauskas
  * @version 2020-09-23.01
  */
-class SortedLinkedListADTTest {
+public class SortedLinkedListADTTest {
 
     SortedLinkedList sorted;
     Node node, head;
@@ -28,43 +27,57 @@ class SortedLinkedListADTTest {
         sorted = null;
     }
 
-
+    /**
+     * Test to check the size of the list.
+     */
     @Test
-    void size() {
-        assertEquals(0, sorted.size());
+    public void size() {
+        assertEquals(1, sorted.size());
     }
 
+
+    /**
+     * Test to insert item into linked list
+     */
     @Test
-    void insert() {
+    public void insert() {
 
         sorted.insert(1);
         assertEquals(2, sorted.size());
 
     }
 
+    /**
+     * Test to remove item into linked list
+     */
     @Test
-    void remove() {
+    public void remove() {
         sorted.insert(5);
-        head.next = node;
-        head = null;
+        assertEquals(2, sorted.size());
+
+
+        sorted.remove(5);
+        assertFalse(sorted.contains(5));
+
+    }
+
+    /**
+     * Test to check if the list is empty
+     */
+    @Test
+    public void empty() {
         assertEquals(1, sorted.size());
     }
 
-    @Test
-    void empty() {
-        assertEquals(0, sorted.size());
-    }
 
+    /**
+     * Test to remove all items from the list
+     */
     @Test
-    void removeAll() {
+    public void removeAll() {
         sorted.insert(4);
-        head.next = node;
-        assertEquals(2, sorted.size());
-        while(head != null)
-        {
-            head = head.next;
 
-        }
+        sorted.removeAll();
         assertEquals(0, sorted.size());
     }
 
