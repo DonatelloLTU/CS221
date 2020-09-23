@@ -48,6 +48,4 @@ public class NodeTest {
         assertEquals(headNode, list.iterator().next());
     }
 
-    @Test
-
 }
