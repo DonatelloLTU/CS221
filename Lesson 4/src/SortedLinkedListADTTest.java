@@ -4,16 +4,22 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class to test SOrted Linked list
+ * @author Donatas Vasauskas
+ * @version 2020-09-23.01
+ */
 class SortedLinkedListADTTest {
 
     SortedLinkedList sorted;
-    Node node;
+    Node node, head;
 
     @Before
     public void before()
     {
         sorted = new SortedLinkedList();
-        node =new Node(10);
+
+        sorted.insert(10);
     }
 
     @After
@@ -22,6 +28,7 @@ class SortedLinkedListADTTest {
         sorted = null;
     }
 
+
     @Test
     void size() {
         assertEquals(0, sorted.size());
@@ -29,14 +36,15 @@ class SortedLinkedListADTTest {
 
     @Test
     void insert() {
-        sorted.head = node;
-        assertEquals(1, sorted.size());
+
+        sorted.insert(1);
+        assertEquals(2, sorted.size());
 
     }
 
     @Test
     void remove() {
-        sorted.head = node;
+        sorted.insert(5);
         head.next = node;
         head = null;
         assertEquals(1, sorted.size());
@@ -49,13 +57,13 @@ class SortedLinkedListADTTest {
 
     @Test
     void removeAll() {
-        sorted.head = node;
+        sorted.insert(4);
         head.next = node;
         assertEquals(2, sorted.size());
         while(head != null)
         {
             head = head.next;
-            size--;
+
         }
         assertEquals(0, sorted.size());
     }
