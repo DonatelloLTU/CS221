@@ -13,7 +13,7 @@ class SortedLinkedListADTTest {
     public void before()
     {
         sorted = new SortedLinkedList();
-        node =new Node();
+        node =new Node(10);
     }
 
     @After
