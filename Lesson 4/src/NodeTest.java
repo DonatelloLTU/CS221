@@ -19,7 +19,7 @@ public class NodeTest {
      * Builds everything for a test
      */
     @Before
-    public void before() {
+    public void before() throws Exception {
 
         list = new SortedLinkedList();
         list.insert(4);
@@ -45,7 +45,7 @@ public class NodeTest {
      * Test to set next
      */
     @Test
-    public void setNextTest() {
+    public void setNextTest() throws Exception {
         list = new SortedLinkedList();
         Integer setTestNode = 22;
         list.insert(22);
@@ -67,8 +67,7 @@ public class NodeTest {
          * Test to set item
          */
         @Test
-        public void setItemTest()
-        {
+        public void setItemTest() throws Exception {
             item = 6;
             list.insert(item);
             System.out.println("Test setItemTest");

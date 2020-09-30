@@ -17,12 +17,12 @@ public interface SortedLinkedListADT
     /**
      *Method to add index(item) to the linked list
      */
-    public void insert(Integer index);
+    public void insert(Integer index) throws Exception;
 
     /**
      * Method to remove index(item) from the linked list
      */
-    public void remove(Integer index);
+    public void remove(Integer index) throws Exception;
 
     /**
      * Method to check if the linked list is empty

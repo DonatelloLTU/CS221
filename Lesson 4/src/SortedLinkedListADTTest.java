@@ -14,8 +14,7 @@ public class SortedLinkedListADTTest {
     Node node, head;
 
     @Before
-    public void before()
-    {
+    public void before() throws Exception {
         sorted = new SortedLinkedList();
 
         sorted.insert(10);
@@ -40,7 +39,7 @@ public class SortedLinkedListADTTest {
      * Test to insert item into linked list
      */
     @Test
-    public void insert() {
+    public void insert() throws Exception {
 
         sorted.insert(1);
         assertEquals(2, sorted.size());
@@ -51,7 +50,7 @@ public class SortedLinkedListADTTest {
      * Test to remove item into linked list
      */
     @Test
-    public void remove() {
+    public void remove() throws Exception {
         sorted.insert(5);
         assertEquals(2, sorted.size());
 
@@ -74,7 +73,7 @@ public class SortedLinkedListADTTest {
      * Test to remove all items from the list
      */
     @Test
-    public void removeAll() {
+    public void removeAll() throws Exception {
         sorted.insert(4);
 
         sorted.removeAll();

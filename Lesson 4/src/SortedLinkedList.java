@@ -28,11 +28,12 @@ public class SortedLinkedList implements SortedLinkedListADT {
     }
 
     @Override
-    public void insert(Integer item)
-    {
+    public void insert(Integer item) throws Exception {
         if (find(item) == true)
         {
-            System.out.println("List contains item already");
+
+            throw new Exception("Item already is within the list");
+
         }
         else {
             Node node1 = new Node(item);
@@ -68,32 +69,29 @@ public class SortedLinkedList implements SortedLinkedListADT {
     }
 
     @Override
-    public void remove(Integer item)
-    {
-        if (head.item.compareTo(item) == 0)
-        {
-            head = head.next;
-        }
-        else
-        {
-            Node node1 = head;
-            Node node2 = null;
-            while(node1.next != null)
-            {
-                if(node1.next.item.equals(item))
-                {
-                    node1.next = node1.next.next;
-                    break;
+    public void remove(Integer item) throws Exception {
+        if (!contains(item)) {
+            throw new Exception("Item is not in the list already!");
+        } else {
+            if (head.item.compareTo(item) == 0) {
+                head = head.next;
+            } else {
+
+                Node node1 = head;
+                Node node2 = null;
+                while (node1.next != null) {
+                    if (node1.next.item.equals(item)) {
+                        node1.next = node1.next.next;
+                        break;
+                    } else {
+                        node2 = node1.next;
+                        node1 = node1.next;
+                    }
+                    node2.next = null;
                 }
-                else
-                {
-                    node2 = node1.next;
-                    node1 = node1.next;
-                }
-                node2.next = null;
             }
+            size--;
         }
-        size--;
     }
 
     @Override
