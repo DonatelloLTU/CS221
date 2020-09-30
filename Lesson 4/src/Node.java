@@ -17,6 +17,11 @@ public class Node
         next = null;
     }
 
+    /**
+     * Constructor method
+     * @param item item itself
+     * @param next reference to the node
+     */
     public Node(Integer item, Node next)
     {
         this.item = item;

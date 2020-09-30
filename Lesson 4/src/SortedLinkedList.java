@@ -1,3 +1,8 @@
+/**
+ * SortedLinkedList class implements SortedLinkedListADT
+ * @author Donatas Vasauskas
+ * @version 2020-09-28.01
+ */
 public class SortedLinkedList implements SortedLinkedListADT {
 
     int size;
@@ -8,28 +13,25 @@ public class SortedLinkedList implements SortedLinkedListADT {
         head = null;
     }
 
-    private boolean find(Integer item)
-    {
-        Node node1 = head;
-        while (node1 != null)
-        {
-            if(node1.item.equals(item))
-            {
-                return true;
-            }
-            node1 = node1.next;
-        }
-        return false;
-    }
+
+    /**
+     * Method to get size of the list
+     * @return size is an integer to get size of the list
+     */
     @Override
     public int size()
     {
         return size;
     }
 
+    /**
+     * Inserts item to the list
+     * @param item
+     * @throws Exception if the item already contains within the item
+     */
     @Override
     public void insert(Integer item) throws Exception {
-        if (find(item) == true)
+        if (contains(item) == true)
         {
 
             throw new Exception("Item already is within the list");
@@ -68,6 +70,11 @@ public class SortedLinkedList implements SortedLinkedListADT {
         }
     }
 
+    /**
+     * Removes item from the list
+     * @param item
+     * @throws Exception if item is not found
+     */
     @Override
     public void remove(Integer item) throws Exception {
         if (!contains(item)) {
@@ -94,12 +101,19 @@ public class SortedLinkedList implements SortedLinkedListADT {
         }
     }
 
+    /**
+     * Method make the list is empty
+     * @return empty list
+     */
     @Override
     public boolean empty()
     {
         return(head == null);
     }
 
+    /**
+     * Remove all the items from the list
+     */
     @Override
     public void removeAll()
     {
@@ -112,6 +126,11 @@ public class SortedLinkedList implements SortedLinkedListADT {
         size--;
     }
 
+    /**
+     * Method to find the item within the list
+     * @param item
+     * @return
+     */
     @Override
     public boolean contains(Integer item)
     {
