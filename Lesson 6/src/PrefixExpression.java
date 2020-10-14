@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * PrefixExpression class check users prefix expression and uses random numbers generated to calculate the prefix condition
@@ -36,6 +33,7 @@ public class PrefixExpression {
         }
         //isPrefix(expression);
         System.out.println("Expression is prefix:" + isPrefix());
+        System.out.println();
         System.out.println("Result of Prefix Expression equals: " + calculate());
     }
     /**
@@ -64,38 +62,58 @@ public class PrefixExpression {
     static double calculate() {
 
         if (check == true) {
-            char operator = expression.charAt(0);
-            //expression = expression.substring(1);
-            //int chNum = Character.getNumericValue(operator);
-            char firstOperand = expression.charAt(1);
-            char secondOperand = expression.charAt(2);
-            String a = hm.get(firstOperand).toString();
-            System.out.println(firstOperand + " equals to " + a);
-            String b = hm.get(secondOperand).toString();
-            System.out.println(secondOperand + " equals to " + b);
-            double i = Integer.parseInt(a);
-            double j = Integer.parseInt(b);
 
 
-            //expression = expression.substring(1);
-            //if (chNum >=10 && chNum <=35)
-            //{
-            //  return chNum;
-            //}
-            //else {
-            //  double i = calculate();
-            //double  j = calculate();
-            if (operator == '+') {
+                ArrayList ar = new ArrayList<Character>();
+                ArrayList ar1 = new ArrayList<String>();
+                while (!Character.isLetter(expression.charAt(0))) {
 
-                return i + j;
-            } else if (operator == '-') {
-                return i - j;
-            } else if (operator == '*') {
-                return i * j;
-            } else if (operator == '/') {
-                return i / j;
+                    ar.add(expression.charAt(0));
+                    expression = expression.substring(1);
+                }
+                while (!expression.isEmpty())
+                {
+
+                    ar1.add(expression.charAt(0));
+                    expression = expression.substring(1);
+                }
+
+
+                    char operand1 = ar1.get(0).toString().charAt(0);
+                    ar1.remove(0);
+                    String a = hm.get(operand1).toString();
+                    double i = Integer.parseInt(a);
+                    System.out.println("Your numbers are: ");
+                    System.out.println(i);
+                    while (!ar.isEmpty()) {
+                        char operator = ar.get(0).toString().charAt(0);
+                        ar.remove(0);
+                        char operand2 = ar1.get(0).toString().charAt(0);
+                        ar1.remove(0);
+
+
+                        String b = hm.get(operand2).toString();
+
+                        double j = Integer.parseInt(b);
+                        System.out.println(j);
+                        switch (operator) {
+                            case '+' -> i = (i + j);
+                            case '-' -> i = (i - j);
+                            case '*' -> i = (i * j);
+                            case '/' -> i = (i / j);
+                        }
+
+                    }
+                    return i;
+
+
+
+
             }
 
+        else
+        {
+            System.out.println("Enter proper prefix expression!");
         }
         return 0;
     }
