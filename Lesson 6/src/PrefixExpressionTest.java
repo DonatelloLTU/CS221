@@ -81,6 +81,7 @@ public class PrefixExpressionTest
         assertFalse(f1.isPrefix());
         assertTrue(g1.isPrefix());
         assertFalse(h1.isPrefix());
+
     }
 
     /**
@@ -89,9 +90,9 @@ public class PrefixExpressionTest
     @Test
     public void calculate()
     {
-        assertEquals(21.0, a1.calculate());
-        assertEquals((-1.0), c1.calculate());
-        assertEquals(110.0, e1.calculate());
-        assertEquals(0.9090909090909091, g1.calculate());
+        assertEquals(0.0, b1.calculate());
+        assertEquals(0.0, d1.calculate());
+        assertEquals(0.0, f1.calculate());
+        assertEquals(0.0, h1.calculate());
     }
 }
