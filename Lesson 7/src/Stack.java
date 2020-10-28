@@ -7,7 +7,7 @@
 public interface Stack {
 
     /**
-     * Check if the stack is empty by checking is the stacks top is not null
+     * Check if the stack is empty
      * @return true if empty
      * @return false if not empty
      */
@@ -32,7 +32,7 @@ public interface Stack {
     public void push(Integer integer);
 
     /**
-     * Get the top of the stack if the stack is not empty
+     * Return the top of the stack if the stack is not empty
      * @return top Integer of the stack
      */
     public Integer peek();

@@ -69,7 +69,7 @@ public class StackReferencedBased implements Stack {
     }
 
     /**
-     * Get the top of the stack if the stack is not empty
+     * Return the top of the stack if the stack is not empty
      * @return top Integer of the stack
      */
     public Integer peek()
