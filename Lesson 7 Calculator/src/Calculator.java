@@ -13,7 +13,8 @@ public class Calculator {
      */
     public Calculator(String infix)
     {
-        this.infix=infix;
+        this.infix=infix.replaceAll("\\s", "");;
+
     }
 
     /**
@@ -32,9 +33,9 @@ public class Calculator {
      */
     public boolean convertPost()
     {
+        //infix = infix.replaceAll("\\s", ""); //bonus
         postfix = new String("");
         StackReferencedBased stack = new StackReferencedBased();
-        infix = infix.replaceAll("\\s", ""); //bonus
         for(int i = 0; i < infix.length(); ++i)
         {
             char ch = infix.charAt(i);
