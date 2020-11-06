@@ -160,7 +160,7 @@ public class Queue<E> implements QueueInterface<E>{
 
 
     /**
-     * Method implemented by COllections interace
+     * Method implemented by Collections interface
      *
      */
     @Override
