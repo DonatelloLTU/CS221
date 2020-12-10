@@ -1,3 +1,7 @@
+import java.awt.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -11,7 +15,7 @@ public class Game implements Iterable<CardColumn>
 {
     CardColumn[] freecell, tableau, foundation;
     private ArrayList<CardColumn> columns;
-    private ArrayList<ChangeListener> cl; //https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ListChangeListener.html
+    private ArrayList<ChangeListener> cl; //https://docs.oracle.com/javase/7/docs/api/javax/swing/event/ChangeListener.html
     private ArrayDeque<CardColumn> undo = new ArrayDeque<CardColumn>(); //https://www.baeldung.com/java-array-deque#:~:text=An%20ArrayDeque%20(also%20known%20as,In%2DFirst%2DOut).
 
     /**
@@ -21,35 +25,60 @@ public class Game implements Iterable<CardColumn>
     {
         foundation = new CardColumn[4];
         freecell  = new CardColumn[4];
-        tableau    = new Tableau[8];
+        tableau    = new CardColumn[8];
         columns = new ArrayList<CardColumn>();
 
         // columns for foundation
-        for (int column = 0; column < foundation.length; column++)
+        for (int i = 0; i < foundation.length; i++)
         {
-            foundation[column] = new Foundation();
-            columns.add(foundation[column]);
+            foundation[i] = new Foundation();
+            columns.add(foundation[i]);
         }
 
         //columns for freecell
-        for (int column = 0; column < freecell.length; column++)
+        for (int i = 0; i < freecell.length; i++)
         {
-            freecell[column] = new Freecell();
-            columns.add(freecell[column]);
+            freecell[i] = new Freecell();
+            columns.add(freecell[i]);
         }
 
         //collumns for tableau and adding cards and arranging
-        for (int column = 0; column < tableau.length; column++)
+        for (int i = 0; i < tableau.length; i++)
         {
-            tableau[column] = new Tableau();
-            columns.add(tableau[column]);
+            tableau[i] = new CardColumn();
+            columns.add(tableau[i]);
         }
 
         cl = new ArrayList<ChangeListener>();
 
         reset();
+
+    }
+    /*
+    * method to get rules of the game
+     */
+    public static boolean openWebpage(URI uri)
+    {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 
+    public static boolean openWebpage(URL url) {
+        try {
+            return openWebpage(url.toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     /**
      * Method to reset the game
      */
@@ -76,19 +105,19 @@ public class Game implements Iterable<CardColumn>
 
     /**
      * Method to give changes to the listener
-     * https://docs.oracle.com/javase/8/javafx/api/javafx/beans/value/ChangeListener.html
+     * https://docs.oracle.com/javase/7/docs/api/javax/swing/event/ChangeListener.html
      */
     private void changes()
     {
         for (ChangeListener listener : cl)
         {
-            listener.stateChanged(new ChangeEvent("Changed"));
+            listener.stateChanged(new ChangeEvent("Reset the game"));
         }
     }
 
     /**
      * Method to addChangeListener
-     * https://docs.oracle.com/javase/8/javafx/api/javafx/beans/value/ChangeListener.html
+     * https://docs.oracle.com/javase/7/docs/api/javax/swing/event/ChangeListener.html
      * @param listener Change listener for changes
      */
     public void addChangeListener(ChangeListener listener)

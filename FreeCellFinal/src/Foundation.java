@@ -7,11 +7,11 @@ public class Foundation extends CardColumn{
 
     /**
      * Overide mehtod from CardColumn loose coupling.
-     * @param card
+     * @param card move card to foundation starting ace and up
      * @return
      */
     @Override
-    public boolean addingCard(Card card)
+    public boolean addingThisCard(Card card)
     {
         if((this.size() == 0) && (card.getValue() == Value.ACE))
         {
@@ -28,7 +28,11 @@ public class Foundation extends CardColumn{
         }
         return false;
     }
-    @Override public boolean isRemovable()
+    /*
+    Can't remove the card from Foundation
+     */
+    @Override
+    public boolean isRemovable()
     {
         return false;
     }

@@ -5,7 +5,8 @@
  */
 public class Freecell extends CardColumn{
 
-    @Override public boolean addingCard(Card card)
+    @Override
+    public boolean addingThisCard(Card card)
     {
         return size() < 1;
     }

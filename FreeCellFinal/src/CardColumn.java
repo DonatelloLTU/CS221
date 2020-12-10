@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Iterator;
 
 /**
- * Card column class is used to set tableaus, freecll....
+ * Card column class is used to set tableaus, freecll, deck....
  * @author Donatas Vasauskas
  * @version 2020-12-02.01
  */
@@ -66,15 +66,7 @@ public class CardColumn implements Iterable<Card>{
         cards.clear();
     }
 
-    /**
-     * Method for checking can you add cards to specific spot
-     * @param card
-     * @return true
-     */
-    public boolean addingCard(Card card)
-    {
-        return true;
-    }
+
 
     /**
      * Method for adding card
@@ -83,7 +75,11 @@ public class CardColumn implements Iterable<Card>{
      */
     public boolean addingThisCard(Card card)
     {
-        return true;
+        if ((this.size() == 0) ||
+                (this.peek().getValue().ordinal() - 1 == card.getValue().ordinal() && this.peek().getSuit().getColor() != card.getSuit().getColor())) {
+            return true;
+        }
+        return false;
     }
 
     /**
